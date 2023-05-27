@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.grid-container {
+  width: 60%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 16px;
+}
+
+.image {
+  height: 150px;
+  width: 140px;
+  object-fit: cover;
+}
