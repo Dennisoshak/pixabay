@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.prev-next {
+  margin: 2rem auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .grid-container {
   width: 60%;
   margin: 2rem auto;

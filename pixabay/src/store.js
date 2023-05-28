@@ -7,12 +7,12 @@ const initialState = {
   error: null,
 };
 
-const URL = `https://pixabay.com/api/?key=25540812-faf2b76d586c1787d2dd02736&q=art`;
+const URL = `https://pixabay.com/api/?key=25540812-faf2b76d586c1787d2dd02736&q=`;
 
 // Create an async thunk to fetch the photos 
-export const fetchPhotos = createAsyncThunk('photos/fetchPhotos', async () => {
+export const fetchPhotos = createAsyncThunk('photos/fetchPhotos', async (category) => {
   try {
-    const response = await axios.get(URL);
+    const response = await axios.get(`${URL}${category}`);
     return response.data.hits;
   } catch (error) {
     throw Error('Failed to fetch');
