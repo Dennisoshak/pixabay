@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+.images-container {
+  margin-top: 2rem;
+}
 .prev-next {
   margin: 2rem auto;
   width: 50%;
@@ -10,7 +13,7 @@
 }
 
 .grid-container {
-  width: 60%;
+  width: 70%;
   margin: 2rem auto;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -18,7 +21,8 @@
 }
 
 .image {
-  height: 150px;
-  width: 140px;
+  height: 200px;
+  width: 90%;
   object-fit: cover;
+  border-radius: 6px;
 }

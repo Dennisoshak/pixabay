@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   
-
+//provide the application with the global state 
   return (
     <Provider store={store}>
       <div className="App">

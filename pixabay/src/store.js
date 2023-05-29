@@ -19,7 +19,7 @@ export const fetchPhotos = createAsyncThunk('photos/fetchPhotos', async (categor
   }
 });
 
-// Creating a slice using createSlice 
+// Creating a slice for the photos
 const photosSlice = createSlice({
   name: 'photos',
   initialState,
@@ -36,12 +36,13 @@ const photosSlice = createSlice({
   },
 });
 
+
 // Create the Redux store using configureStore from Redux Toolkit
 const store = configureStore({
   reducer: {
     photos: photosSlice.reducer,
+    
   },
 });
-
 
 export default store;
