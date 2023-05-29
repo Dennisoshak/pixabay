@@ -8,13 +8,23 @@ router.get('/', async (req, res) => {
   try {
     const { sort, page, perPage } = req.query;
 
+//Sorting functuanality
+    let sortOrder;
+    if (sort === 'date') {
+      sortOrder = 'latest';
+    } else if (sort === 'id') {
+      sortOrder = 'popular';
+    } else {
+      sortOrder = 'popular'; // Default sort order
+    }
+
     // Call Pixabay API with the provided parameters
     const response = await axios.get('https://pixabay.com/api/', {
       params: {
-        key: 'YOUR_PIXABAY_API_KEY',
-        order: sort === 'date' ? 'latest' : 'popular',
+        key: '25540812-faf2b76d586c1787d2dd02736',
+        order: sortOrder,
         page: page || 1,
-        per_page: perPage || 10,
+        per_page: perPage || 9,
       },
     });
 
