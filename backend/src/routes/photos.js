@@ -1,27 +1,27 @@
-const express = require('express');
-const axios = require('axios');
+const express = require("express");
+const axios = require("axios");
 const router = express.Router();
 
 // GET /api/images
 // Query Parameters: sort (id | date), page, perPage
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const { sort, page, perPage } = req.query;
+    const { sort, page, perPage, q } = req.query;
 
-//Sorting functuanality
+    //Sorting functuanality
     let sortOrder;
-    if (sort === 'date') {
-      sortOrder = 'latest';
-    } else if (sort === 'id') {
-      sortOrder = 'popular';
+    if (sort === "date") {
+      sortOrder = "latest";
+    } else if (sort === "id") {
+      sortOrder = "popular";
     } else {
-      sortOrder = 'popular'; // Default sort order
+      sortOrder = "popular"; // Default sort order
     }
 
     // Call Pixabay API with the provided parameters
-    const response = await axios.get('https://pixabay.com/api/', {
+    const response = await axios.get("https://pixabay.com/api/?key=25540812-faf2b76d586c1787d2dd02736", {
       params: {
-        key: '25540812-faf2b76d586c1787d2dd02736',
+        category: q || "art",
         order: sortOrder,
         page: page || 1,
         per_page: perPage || 9,
@@ -31,8 +31,8 @@ router.get('/', async (req, res) => {
     const photos = response.data.hits;
     res.json(photos);
   } catch (error) {
-    console.error('Error fetching photos:', error);
-    res.status(500).json({ error: 'Failed to fetch' });
+    console.error("Error fetching photos:", error);
+    res.status(500).json({ error: "Failed to fetch" });
   }
 });
 
