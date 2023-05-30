@@ -1,8 +1,6 @@
 import Photos from "./components/Photos";
 import { Provider } from 'react-redux';
-import axios from 'axios' 
 import store from './store';
-import { Button } from "@mui/material";
 import "./App.css";
 
 function App() {
